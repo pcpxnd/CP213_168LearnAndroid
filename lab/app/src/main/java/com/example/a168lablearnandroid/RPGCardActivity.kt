@@ -25,7 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// คงไว้ซึ่ง Shape การ์ดที่โค้งมนทั้งบนและล่าง
 val FCCardShape = GenericShape { size, _ ->
     val width = size.width
     val height = size.height
@@ -60,7 +59,6 @@ class RPGCardActivity : ComponentActivity() {
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // --- HP Bar ---
                 Box(
                     modifier = Modifier
                         .fillMaxWidth(0.9f)
@@ -80,11 +78,10 @@ class RPGCardActivity : ComponentActivity() {
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // --- ตัวการ์ด ---
                 Box(
                     modifier = Modifier
                         .width(330.dp)
-                        .height(500.dp) // เพิ่มความสูงเล็กน้อยเพื่อรองรับโลโก้ที่ใหญ่ขึ้น
+                        .height(500.dp)
                         .shadow(15.dp, FCCardShape)
                         .clip(FCCardShape)
                         .background(
@@ -95,7 +92,6 @@ class RPGCardActivity : ComponentActivity() {
                         .border(2.5.dp, Color(0xFF8B6B23), FCCardShape)
                 ) {
                     Column(modifier = Modifier.fillMaxSize()) {
-                        // ภาพนักเตะและ Rating
                         Box(modifier = Modifier.fillMaxWidth().weight(1.1f)) {
                             Image(
                                 painter = painterResource(id = R.drawable.profile),
@@ -116,7 +112,6 @@ class RPGCardActivity : ComponentActivity() {
                             }
                         }
 
-                        // ส่วนชื่อและสถานะ
                         Column(
                             modifier = Modifier.fillMaxWidth().weight(0.95f),
                             horizontalAlignment = Alignment.CenterHorizontally
@@ -131,7 +126,6 @@ class RPGCardActivity : ComponentActivity() {
 
                             Spacer(modifier = Modifier.height(6.dp))
 
-                            // Stats Grid
                             Row(
                                 modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
                                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -146,29 +140,25 @@ class RPGCardActivity : ComponentActivity() {
 
                             Spacer(modifier = Modifier.weight(1f))
 
-                            // --- โลโก้ด้านล่าง (ขยายขนาดให้ใหญ่ขึ้นและชัดเจน) ---
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(bottom = 35.dp), // ระยะห่างจากขอบล่างการ์ด
+                                    .padding(bottom = 35.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                // ธงชาติ (ขยายขนาด)
                                 Image(
                                     painter = painterResource(id = R.drawable.slovenian_flag),
                                     contentDescription = null,
                                     modifier = Modifier.size(50.dp, 35.dp).padding(2.dp)
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
-                                // โลโก้ลีค (ขยายขนาด)
                                 Image(
                                     painter = painterResource(id = R.drawable.premierleague_logo),
                                     contentDescription = null,
                                     modifier = Modifier.size(45.dp).padding(2.dp)
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
-                                // โลโก้สโมสร (ขยายขนาด)
                                 Image(
                                     painter = painterResource(id = R.drawable.manu_logo),
                                     contentDescription = null,
